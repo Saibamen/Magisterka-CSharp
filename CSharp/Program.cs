@@ -9,26 +9,50 @@ namespace CSharp
         private const int TestAttempts = 10;
         private const int Iterations = 1000;
 
-        private static void Main(string[] args)
+        private static readonly string BaseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+        private static readonly string ReadTestFile = $"{BaseDirectory}{Path.DirectorySeparatorChar}da51f72f-7804-40fe-bc66-8fc5418325fb_001.data";
+
+        private static void Main()
         {
             for (var i = 0; i < TestAttempts; i++)
             {
-                ReadFile();
+                ReadFile_ReadAllText();
             }
 
+            Console.WriteLine();
+
+            for (var i = 0; i < TestAttempts; i++)
+            {
+                ReadFile_ByLine();
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Press any key to exit...");
             Console.ReadKey();
         }
 
-        private static void ReadFile()
+        private static void ReadFile_ReadAllText()
         {
-            var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            var file = $"{baseDirectory}{Path.DirectorySeparatorChar}da51f72f-7804-40fe-bc66-8fc5418325fb_001.data";
-
             var stopwatch = Stopwatch.StartNew();
 
             for (var i = 0; i < Iterations; i++)
             {
-                File.ReadAllText(file);
+                File.ReadAllText(ReadTestFile);
+            }
+
+            stopwatch.Stop();
+            PrintElapsedTime(stopwatch);
+        }
+
+        private static void ReadFile_ByLine()
+        {
+            var stopwatch = Stopwatch.StartNew();
+
+            for (var i = 0; i < Iterations; i++)
+            {
+                var fileStream = new FileStream(ReadTestFile, FileMode.Open);
+                using var streamReader = new StreamReader(fileStream);
+                streamReader.ReadLine();
             }
 
             stopwatch.Stop();
