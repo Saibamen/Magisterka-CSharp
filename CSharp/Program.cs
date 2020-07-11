@@ -12,7 +12,7 @@ namespace CSharp
         {
             for (var i = 0; i < TestAttempts; i++)
             {
-                FileModule.ReadFile_ReadAllText();
+                FileModule.ReadFile_AllText();
             }
 
             Console.WriteLine();

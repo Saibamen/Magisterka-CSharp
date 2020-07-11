@@ -9,7 +9,7 @@ namespace CSharp
         private static readonly string BaseDirectory = AppDomain.CurrentDomain.BaseDirectory;
         private static readonly string ReadTestFile = $"{BaseDirectory}{Path.DirectorySeparatorChar}da51f72f-7804-40fe-bc66-8fc5418325fb_001.data";
 
-        public static void ReadFile_ReadAllText()
+        public static void ReadFile_AllText()
         {
             var stopwatch = Stopwatch.StartNew();
 
@@ -31,6 +31,32 @@ namespace CSharp
                 var fileStream = new FileStream(ReadTestFile, FileMode.Open);
                 using var streamReader = new StreamReader(fileStream);
                 streamReader.ReadLine();
+            }
+
+            stopwatch.Stop();
+            Program.PrintElapsedTime(stopwatch);
+        }
+
+        public static void WriteFile_AllText()
+        {
+            var stopwatch = Stopwatch.StartNew();
+
+            for (var i = 0; i < Program.Iterations; i++)
+            {
+                // TODO: WriteFile_AllText
+            }
+
+            stopwatch.Stop();
+            Program.PrintElapsedTime(stopwatch);
+        }
+
+        public static void WriteFile_ByLine()
+        {
+            var stopwatch = Stopwatch.StartNew();
+
+            for (var i = 0; i < Program.Iterations; i++)
+            {
+                // TODO: WriteFile_ByLine
             }
 
             stopwatch.Stop();
