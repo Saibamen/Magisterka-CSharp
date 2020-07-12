@@ -12,6 +12,11 @@ namespace CSharp
 
         private static void Main()
         {
+            bool debug;
+            #if DEBUG
+                debug = true;
+            #endif
+
             var stopwatch = Stopwatch.StartNew();
 
             /*
@@ -45,6 +50,7 @@ namespace CSharp
             stopwatch.Stop();
             Console.WriteLine();
             Console.WriteLine($"All tests executed in {stopwatch.Elapsed.TotalMinutes} minutes");
+            Console.WriteLine($"DEBUG = {debug}");
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey();
         }
