@@ -75,7 +75,7 @@ namespace CSharp
 
             for (var i = 0; i < Program.Iterations; i++)
             {
-                // TODO: RenameFiles
+                File.Move(Path.Combine(TestFilesDirectory, $"{TestFilePrefix}{i}{TestFileExtension}"), Path.Combine(TestFilesDirectory, $"{TestFilePrefix}{i}_renamed{TestFileExtension}"));
             }
 
             stopwatch.Stop();
@@ -122,6 +122,7 @@ namespace CSharp
 
         private static void CreateTestFiles()
         {
+            // TODO: Progress bar
             Console.WriteLine("Creating test files...");
             var testFileContent = File.ReadAllText(ReadTestFile);
             Directory.CreateDirectory(TestFilesDirectory);

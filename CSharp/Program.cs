@@ -8,57 +8,24 @@ namespace CSharp
         public const int Iterations = 1000;
         private const int TestAttempts = 10;
 
+        private delegate void TestDelegate();
+
         private static void Main()
         {
             /*
              *  FileModule
              */
-            for (var i = 0; i < TestAttempts; i++)
-            {
-                FileModule.ReadFile_AllText();
-            }
+            Console.WriteLine($"FileModule{Environment.NewLine}");
+
+            RunTestsFor(FileModule.ReadFile_AllText);
+            RunTestsFor(FileModule.ReadFile_ByLine);
+            RunTestsFor(FileModule.WriteFile_AllText);
+            RunTestsFor(FileModule.WriteFile_ByLine);
+            RunTestsFor(FileModule.RenameFiles);
+            RunTestsFor(FileModule.CopyFiles);
+            RunTestsFor(FileModule.DeleteFiles);
 
             Console.WriteLine();
-
-            for (var i = 0; i < TestAttempts; i++)
-            {
-                FileModule.ReadFile_ByLine();
-            }
-
-            Console.WriteLine();
-
-            for (var i = 0; i < TestAttempts; i++)
-            {
-                FileModule.WriteFile_AllText();
-            }
-
-            Console.WriteLine();
-
-            for (var i = 0; i < TestAttempts; i++)
-            {
-                FileModule.WriteFile_ByLine();
-            }
-
-            Console.WriteLine();
-
-            for (var i = 0; i < TestAttempts; i++)
-            {
-                FileModule.RenameFiles();
-            }
-
-            Console.WriteLine();
-
-            for (var i = 0; i < TestAttempts; i++)
-            {
-                FileModule.CopyFiles();
-            }
-
-            Console.WriteLine();
-
-            for (var i = 0; i < TestAttempts; i++)
-            {
-                FileModule.DeleteFiles();
-            }
 
             Console.WriteLine();
             Console.WriteLine("Press any key to exit...");
@@ -71,6 +38,16 @@ namespace CSharp
             var callingMethod = stackTrace.GetFrame(1)?.GetMethod()?.Name;
 
             Console.WriteLine($"{callingMethod} N = {Iterations} = {stopwatch.Elapsed.TotalSeconds} seconds");
+        }
+
+        private static void RunTestsFor(TestDelegate testDelegate)
+        {
+            for (var i = 0; i < TestAttempts; i++)
+            {
+                testDelegate();
+            }
+
+            Console.WriteLine();
         }
     }
 }
