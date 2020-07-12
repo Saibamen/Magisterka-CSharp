@@ -16,6 +16,7 @@ namespace CSharp
              *  FileModule
              */
             Console.WriteLine($"FileModule{Environment.NewLine}");
+            FileModule.DeleteTestFiles();
 
             RunTestsFor(FileModule.ReadFile_AllText);
             RunTestsFor(FileModule.ReadFile_ByLine);

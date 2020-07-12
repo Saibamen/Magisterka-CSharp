@@ -13,6 +13,17 @@ namespace CSharp
         private const string TestFilePrefix = "testFile_";
         private const string TestFileExtension = ".txt";
 
+        public static void DeleteTestFiles()
+        {
+            if (!Directory.Exists(TestFilesDirectory))
+            {
+                return;
+            }
+
+            Console.WriteLine("Deleting test files...");
+            Directory.Delete(TestFilesDirectory, true);
+        }
+
         public static void ReadFile_AllText()
         {
             var stopwatch = Stopwatch.StartNew();
@@ -122,7 +133,6 @@ namespace CSharp
 
         private static void CreateTestFiles()
         {
-            // TODO: Progress bar
             Console.WriteLine("Creating test files...");
             var testFileContent = File.ReadAllText(ReadTestFile);
             Directory.CreateDirectory(TestFilesDirectory);
@@ -130,13 +140,20 @@ namespace CSharp
             for (var i = 0; i < Program.Iterations; i++)
             {
                 File.WriteAllText(Path.Combine(TestFilesDirectory, $"{TestFilePrefix}{i}{TestFileExtension}"), testFileContent);
+
+                ClearCurrentConsoleLine();
+                Console.Write($"{i + 1} of {Program.Iterations}");
             }
+
+            Console.WriteLine();
         }
 
-        private static void DeleteTestFiles()
+        private static void ClearCurrentConsoleLine()
         {
-            Console.WriteLine("Deleting test files...");
-            Directory.Delete(TestFilesDirectory, true);
+            var currentLineCursor = Console.CursorTop;
+            Console.SetCursorPosition(0, Console.CursorTop);
+            Console.Write(new string(' ', Console.WindowWidth));
+            Console.SetCursorPosition(0, currentLineCursor);
         }
     }
 }
