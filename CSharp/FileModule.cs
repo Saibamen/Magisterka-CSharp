@@ -87,12 +87,14 @@ namespace CSharp
         public static void CopyFiles()
         {
             CreateTestFiles();
+            var copyDirectory = Path.Combine(TestFilesDirectory, "CopyDirectory");
+            Directory.CreateDirectory(copyDirectory);
 
             var stopwatch = Stopwatch.StartNew();
 
             for (var i = 0; i < Program.Iterations; i++)
             {
-                // TODO: CopyFiles - move to different folder
+                File.Copy(Path.Combine(TestFilesDirectory, $"{TestFilePrefix}{i}{TestFileExtension}"), Path.Combine(copyDirectory, $"{TestFilePrefix}{i}_copied{TestFileExtension}"));
             }
 
             stopwatch.Stop();

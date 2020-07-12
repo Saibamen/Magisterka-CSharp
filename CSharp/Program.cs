@@ -10,6 +10,9 @@ namespace CSharp
 
         private static void Main()
         {
+            /*
+             *  FileModule
+             */
             for (var i = 0; i < TestAttempts; i++)
             {
                 FileModule.ReadFile_AllText();
@@ -20,6 +23,41 @@ namespace CSharp
             for (var i = 0; i < TestAttempts; i++)
             {
                 FileModule.ReadFile_ByLine();
+            }
+
+            Console.WriteLine();
+
+            for (var i = 0; i < TestAttempts; i++)
+            {
+                FileModule.WriteFile_AllText();
+            }
+
+            Console.WriteLine();
+
+            for (var i = 0; i < TestAttempts; i++)
+            {
+                FileModule.WriteFile_ByLine();
+            }
+
+            Console.WriteLine();
+
+            for (var i = 0; i < TestAttempts; i++)
+            {
+                FileModule.RenameFiles();
+            }
+
+            Console.WriteLine();
+
+            for (var i = 0; i < TestAttempts; i++)
+            {
+                FileModule.CopyFiles();
+            }
+
+            Console.WriteLine();
+
+            for (var i = 0; i < TestAttempts; i++)
+            {
+                FileModule.DeleteFiles();
             }
 
             Console.WriteLine();
