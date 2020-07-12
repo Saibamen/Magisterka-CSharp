@@ -12,6 +12,8 @@ namespace CSharp
 
         private static void Main()
         {
+            var stopwatch = Stopwatch.StartNew();
+
             /*
              *  FileModule
              */
@@ -40,7 +42,9 @@ namespace CSharp
 
             //Console.WriteLine($"NumberModule{Environment.NewLine}");
 
+            stopwatch.Stop();
             Console.WriteLine();
+            Console.WriteLine($"All tests executed in {stopwatch.Elapsed.TotalMinutes} minutes");
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey();
         }
