@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 namespace CSharp
 {
-    public class Program
+    public static class Program
     {
         public const int Iterations = 1000;
         private const int TestAttempts = 10;
@@ -27,6 +27,18 @@ namespace CSharp
             RunTestsFor(FileModule.DeleteFiles);
 
             Console.WriteLine();
+
+            /*
+             *  StringModule
+             */
+
+            //Console.WriteLine($"StringModule{Environment.NewLine}");
+
+            /*
+             *  NumberModule
+             */
+
+            //Console.WriteLine($"NumberModule{Environment.NewLine}");
 
             Console.WriteLine();
             Console.WriteLine("Press any key to exit...");
