@@ -7,7 +7,11 @@ namespace CSharp
     public class FileModule
     {
         private static readonly string BaseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-        private static readonly string ReadTestFile = $"{BaseDirectory}{Path.DirectorySeparatorChar}da51f72f-7804-40fe-bc66-8fc5418325fb_001.data";
+        private static readonly string TestFilesDirectory = Path.Combine(BaseDirectory, "TestFiles");
+        private static readonly string ReadTestFile = Path.Combine(BaseDirectory, "da51f72f-7804-40fe-bc66-8fc5418325fb_001.data");
+
+        private const string TestFilePrefix = "testFile_";
+        private const string TestFileExtension = ".txt";
 
         public static void ReadFile_AllText()
         {
@@ -61,6 +65,75 @@ namespace CSharp
 
             stopwatch.Stop();
             Program.PrintElapsedTime(stopwatch);
+        }
+
+        public static void RenameFiles()
+        {
+            CreateTestFiles();
+
+            var stopwatch = Stopwatch.StartNew();
+
+            for (var i = 0; i < Program.Iterations; i++)
+            {
+                // TODO: RenameFiles
+            }
+
+            stopwatch.Stop();
+            Program.PrintElapsedTime(stopwatch);
+
+            DeleteTestFiles();
+        }
+
+        public static void CopyFiles()
+        {
+            CreateTestFiles();
+
+            var stopwatch = Stopwatch.StartNew();
+
+            for (var i = 0; i < Program.Iterations; i++)
+            {
+                // TODO: CopyFiles - move to different folder
+            }
+
+            stopwatch.Stop();
+            Program.PrintElapsedTime(stopwatch);
+
+            DeleteTestFiles();
+        }
+
+        public static void DeleteFiles()
+        {
+            CreateTestFiles();
+
+            var stopwatch = Stopwatch.StartNew();
+
+            for (var i = 0; i < Program.Iterations; i++)
+            {
+                File.Delete(Path.Combine(TestFilesDirectory, $"{TestFilePrefix}{i}{TestFileExtension}"));
+            }
+
+            stopwatch.Stop();
+            Program.PrintElapsedTime(stopwatch);
+
+            DeleteTestFiles();
+        }
+
+        private static void CreateTestFiles()
+        {
+            Console.WriteLine("Creating test files...");
+            var testFileContent = File.ReadAllText(ReadTestFile);
+            Directory.CreateDirectory(TestFilesDirectory);
+
+            for (var i = 0; i < Program.Iterations; i++)
+            {
+                File.WriteAllText(Path.Combine(TestFilesDirectory, $"{TestFilePrefix}{i}{TestFileExtension}"), testFileContent);
+            }
+        }
+
+        private static void DeleteTestFiles()
+        {
+            Console.WriteLine("Deleting test files...");
+            Directory.Delete(TestFilesDirectory, true);
         }
     }
 }
