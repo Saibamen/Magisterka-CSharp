@@ -54,28 +54,38 @@ namespace CSharp
 
         public static void WriteFile_AllText()
         {
+            var testFileContent = File.ReadAllText(ReadTestFile);
+            Directory.CreateDirectory(TestFilesDirectory);
+
             var stopwatch = Stopwatch.StartNew();
 
             for (var i = 0; i < Program.Iterations; i++)
             {
-                // TODO: WriteFile_AllText
+                File.WriteAllText(Path.Combine(TestFilesDirectory, $"{TestFilePrefix}{i}_WriteAllText{TestFileExtension}"), testFileContent);
             }
 
             stopwatch.Stop();
             Program.PrintElapsedTime(stopwatch);
+
+            DeleteTestFiles();
         }
 
         public static void WriteFile_ByLine()
         {
+            var testFileLines = File.ReadAllLines(ReadTestFile);
+            Directory.CreateDirectory(TestFilesDirectory);
+
             var stopwatch = Stopwatch.StartNew();
 
             for (var i = 0; i < Program.Iterations; i++)
             {
-                // TODO: WriteFile_ByLine
+                File.WriteAllLines(Path.Combine(TestFilesDirectory, $"{TestFilePrefix}{i}_WriteAllLines{TestFileExtension}"), testFileLines);
             }
 
             stopwatch.Stop();
             Program.PrintElapsedTime(stopwatch);
+
+            DeleteTestFiles();
         }
 
         public static void RenameFiles()
