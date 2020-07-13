@@ -45,6 +45,7 @@ namespace CSharp
             {
                 var fileStream = new FileStream(ReadTestFile, FileMode.Open);
                 using var streamReader = new StreamReader(fileStream);
+                // TODO: Return to variable?
                 streamReader.ReadLine();
             }
 
@@ -61,6 +62,7 @@ namespace CSharp
 
             for (var i = 0; i < Program.Iterations; i++)
             {
+                // TODO: Return to variable?
                 File.WriteAllText(Path.Combine(TestFilesDirectory, $"{TestFilePrefix}{i}_WriteAllText{TestFileExtension}"), testFileContent);
             }
 
