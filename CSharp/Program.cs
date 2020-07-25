@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 
 namespace CSharp
@@ -20,32 +20,32 @@ namespace CSharp
             var stopwatch = Stopwatch.StartNew();
 
             /*
-             *  FileModule
+             *  FileTests
              */
-            Console.WriteLine($"FileModule{Environment.NewLine}");
-            FileModule.DeleteTestFiles();
+            Console.WriteLine($"FileTests{Environment.NewLine}");
+            FileTests.DeleteTestFiles();
 
-            RunTestsFor(FileModule.ReadFile_AllText);
-            RunTestsFor(FileModule.ReadFile_ByLine);
-            RunTestsFor(FileModule.WriteFile_AllText);
-            RunTestsFor(FileModule.WriteFile_ByLine);
-            RunTestsFor(FileModule.RenameFiles);
-            RunTestsFor(FileModule.CopyFiles);
-            RunTestsFor(FileModule.DeleteFiles);
+            RunTestsFor(FileTests.ReadFile_AllText);
+            RunTestsFor(FileTests.ReadFile_ByLine);
+            RunTestsFor(FileTests.WriteFile_AllText);
+            RunTestsFor(FileTests.WriteFile_ByLine);
+            RunTestsFor(FileTests.RenameFiles);
+            RunTestsFor(FileTests.CopyFiles);
+            RunTestsFor(FileTests.DeleteFiles);
 
             Console.WriteLine();
 
             /*
-             *  StringModule
+             *  StringTests
              */
 
-            //Console.WriteLine($"StringModule{Environment.NewLine}");
+            //Console.WriteLine($"StringTests{Environment.NewLine}");
 
             /*
-             *  NumberModule
+             *  NumberTests
              */
 
-            //Console.WriteLine($"NumberModule{Environment.NewLine}");
+            //Console.WriteLine($"NumberTests{Environment.NewLine}");
 
             stopwatch.Stop();
             Console.WriteLine();

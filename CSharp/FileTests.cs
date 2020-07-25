@@ -4,7 +4,7 @@ using System.IO;
 
 namespace CSharp
 {
-    public static class FileModule
+    public static class FileTests
     {
         private static readonly string BaseDirectory = AppDomain.CurrentDomain.BaseDirectory;
         private static readonly string TestFilesDirectory = Path.Combine(BaseDirectory, "TestFiles");

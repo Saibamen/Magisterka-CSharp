@@ -2,7 +2,7 @@
 
 namespace CSharp
 {
-    public static class NumberModule
+    public static class NumberTests
     {
         // TODO: NumberModule
 

@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace CSharp
 {
-    public static class StringModule
+    public static class StringTests
     {
         // TODO: StringModule
 
