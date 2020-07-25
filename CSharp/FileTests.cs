@@ -42,12 +42,12 @@ namespace CSharp
         // NOTE: Decreased to 25 iterations
         public static void ReadFile_ByLine()
         {
-            const int iterations = 25;
+            const int testIterations = 25;
             string returnVar = null;
 
             var stopwatch = Stopwatch.StartNew();
 
-            for (var i = 0; i < iterations; i++)
+            for (var i = 0; i < testIterations; i++)
             {
                 string line;
                 using var streamReader = new StreamReader(ReadTestFile);
@@ -59,7 +59,7 @@ namespace CSharp
             }
 
             stopwatch.Stop();
-            Program.PrintElapsedTime(stopwatch, iterations);
+            Program.PrintElapsedTime(stopwatch, testIterations);
         }
 
         public static void WriteFile_AllText()
