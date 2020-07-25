@@ -26,11 +26,13 @@ namespace CSharp
 
         public static void ReadFile_AllText()
         {
+            string returnVar;
+
             var stopwatch = Stopwatch.StartNew();
 
             for (var i = 0; i < Program.Iterations; i++)
             {
-                File.ReadAllText(ReadTestFile);
+                returnVar = File.ReadAllText(ReadTestFile);
             }
 
             stopwatch.Stop();
@@ -39,14 +41,15 @@ namespace CSharp
 
         public static void ReadFile_ByLine()
         {
+            string returnVar;
+
             var stopwatch = Stopwatch.StartNew();
 
             for (var i = 0; i < Program.Iterations; i++)
             {
                 var fileStream = new FileStream(ReadTestFile, FileMode.Open);
                 using var streamReader = new StreamReader(fileStream);
-                // TODO: Return to variable?
-                streamReader.ReadLine();
+                returnVar = streamReader.ReadLine();
             }
 
             stopwatch.Stop();
@@ -62,7 +65,6 @@ namespace CSharp
 
             for (var i = 0; i < Program.Iterations; i++)
             {
-                // TODO: Return to variable?
                 File.WriteAllText(Path.Combine(TestFilesDirectory, $"{TestFilePrefix}{i}_WriteAllText{TestFileExtension}"), testFileContent);
             }
 
