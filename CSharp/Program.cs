@@ -41,11 +41,19 @@ namespace CSharp
 
             //Console.WriteLine($"StringTests{Environment.NewLine}");
 
+            //
+
+            //Console.WriteLine();
+
             /*
              *  NumberTests
              */
 
             //Console.WriteLine($"NumberTests{Environment.NewLine}");
+
+            //
+
+            //Console.WriteLine();
 
             stopwatch.Stop();
             Console.WriteLine();
