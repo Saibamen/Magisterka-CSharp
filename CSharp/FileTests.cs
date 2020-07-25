@@ -118,6 +118,7 @@ namespace CSharp
         public static void CopyFiles()
         {
             CreateTestFiles();
+
             var copyDirectory = Path.Combine(TestFilesDirectory, "CopyDirectory");
             Directory.CreateDirectory(copyDirectory);
 
@@ -153,6 +154,8 @@ namespace CSharp
 
         private static void CreateTestFiles()
         {
+            DeleteTestFiles();
+
             Console.WriteLine("Creating test files...");
             var testFileContent = File.ReadAllText(ReadTestFile);
             Directory.CreateDirectory(TestFilesDirectory);
