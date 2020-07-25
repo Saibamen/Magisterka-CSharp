@@ -39,21 +39,27 @@ namespace CSharp
             Program.PrintElapsedTime(stopwatch);
         }
 
+        // NOTE: Decreased to 25 iterations
         public static void ReadFile_ByLine()
         {
-            string returnVar;
+            const int iterations = 25;
+            string returnVar = null;
 
             var stopwatch = Stopwatch.StartNew();
 
-            for (var i = 0; i < Program.Iterations; i++)
+            for (var i = 0; i < iterations; i++)
             {
-                var fileStream = new FileStream(ReadTestFile, FileMode.Open);
-                using var streamReader = new StreamReader(fileStream);
-                returnVar = streamReader.ReadLine();
+                string line;
+                using var streamReader = new StreamReader(ReadTestFile);
+
+                while ((line = streamReader.ReadLine()) != null)
+                {
+                    returnVar += line;
+                }
             }
 
             stopwatch.Stop();
-            Program.PrintElapsedTime(stopwatch);
+            Program.PrintElapsedTime(stopwatch, iterations);
         }
 
         public static void WriteFile_AllText()

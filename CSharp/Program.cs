@@ -63,12 +63,14 @@ namespace CSharp
             Console.ReadKey();
         }
 
-        public static void PrintElapsedTime(Stopwatch stopwatch)
+        public static void PrintElapsedTime(Stopwatch stopwatch, int? iterations = null)
         {
+            var testIterations = iterations ?? Iterations;
+
             var stackTrace = new StackTrace();
             var callingMethod = stackTrace.GetFrame(1)?.GetMethod()?.Name;
 
-            Console.WriteLine($"{callingMethod} N = {Iterations} = {stopwatch.Elapsed.TotalSeconds} seconds");
+            Console.WriteLine($"{callingMethod} N = {testIterations} = {stopwatch.Elapsed.TotalSeconds} seconds");
         }
 
         private static void RunTestsFor(TestDelegate testDelegate)
