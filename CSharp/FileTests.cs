@@ -64,6 +64,8 @@ namespace CSharp
 
         public static void WriteFile_AllText()
         {
+            DeleteTestFiles();
+
             var testFileContent = File.ReadAllText(ReadTestFile);
             Directory.CreateDirectory(TestFilesDirectory);
 
@@ -76,12 +78,12 @@ namespace CSharp
 
             stopwatch.Stop();
             Program.PrintElapsedTime(stopwatch);
-
-            DeleteTestFiles();
         }
 
         public static void WriteFile_ByLine()
         {
+            DeleteTestFiles();
+
             var testFileLines = File.ReadAllLines(ReadTestFile);
             Directory.CreateDirectory(TestFilesDirectory);
 
@@ -94,8 +96,6 @@ namespace CSharp
 
             stopwatch.Stop();
             Program.PrintElapsedTime(stopwatch);
-
-            DeleteTestFiles();
         }
 
         public static void RenameFiles()
@@ -111,8 +111,6 @@ namespace CSharp
 
             stopwatch.Stop();
             Program.PrintElapsedTime(stopwatch);
-
-            DeleteTestFiles();
         }
 
         public static void CopyFiles()
@@ -131,8 +129,6 @@ namespace CSharp
 
             stopwatch.Stop();
             Program.PrintElapsedTime(stopwatch);
-
-            DeleteTestFiles();
         }
 
         public static void DeleteFiles()
@@ -148,8 +144,6 @@ namespace CSharp
 
             stopwatch.Stop();
             Program.PrintElapsedTime(stopwatch);
-
-            DeleteTestFiles();
         }
 
         private static void CreateTestFiles()
