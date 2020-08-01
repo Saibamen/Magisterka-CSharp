@@ -14,12 +14,13 @@ namespace CSharp
 
         public static void DeleteTestFiles()
         {
+            Program.LogText("Deleting test files...");
+
             if (!Directory.Exists(TestFilesDirectory))
             {
                 return;
             }
 
-            Program.LogText("Deleting test files...");
             Directory.Delete(TestFilesDirectory, true);
         }
 
