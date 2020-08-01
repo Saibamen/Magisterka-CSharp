@@ -7,9 +7,10 @@ namespace CSharp
     public static class StringTests
     {
         // TODO: StringModule
-        // Łączenie stringów, Pad, czy ma liczbę, szukanie tekstu, usuwanie tekstu
+        // Łączenie stringów, Pad, czy ma liczbę, szukanie tekstu "TextToSearch", usuwanie tekstu
 
-        private const string TestString = "ThisIsExample123StringToTestStringOperationsWoSpacThisIsExample123StringToTestStringOperationsWoSpac";
+        // 500 characters
+        private const string TestString = "ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTextToSearcherationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@";
 
         // NOTE: Increased to 32000 iterations. Time in milliseconds
         public static void AscTest()
@@ -130,7 +131,8 @@ namespace CSharp
 
             for (var i = 0; i < testIterations; i++)
             {
-                var textToTrim = "      ThisIsExample123StringToTestStringOperationsThisIsExample123StringToTestStringOperations      ";
+                // 520 characters, 10 whitespaces at beginning and end
+                var textToTrim = "          ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTextToSearcherationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@          ";
 
                 if (string.IsNullOrEmpty(textToTrim))
                 {
