@@ -1,17 +1,23 @@
 using System;
 using System.Diagnostics;
+using System.IO;
 
 namespace CSharp
 {
     public static class Program
     {
         public const int Iterations = 1000;
-        private const int TestAttempts = 10;
+        private const int TestRuns = 10;
+
+        public static readonly string BaseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+        public static readonly string LogFilename = "TestsOutputC#.log";
 
         private delegate void TestDelegate();
 
         private static void Main()
         {
+            File.Delete(Path.Combine(BaseDirectory, LogFilename));
+
             var debug = false;
             #if DEBUG
                 debug = true;
@@ -22,7 +28,7 @@ namespace CSharp
             /*
              *  FileTests
              */
-            Console.WriteLine($"FileTests{Environment.NewLine}");
+            LogText($"FileTests{Environment.NewLine}");
             FileTests.DeleteTestFiles();
 
             RunTestsFor(FileTests.ReadFile_AllText);
@@ -33,32 +39,33 @@ namespace CSharp
             RunTestsFor(FileTests.CopyFiles);
             RunTestsFor(FileTests.DeleteFiles);
 
-            Console.WriteLine();
+            LogText();
 
             /*
              *  StringTests
              */
 
-            //Console.WriteLine($"StringTests{Environment.NewLine}");
+            //LogText($"StringTests{Environment.NewLine}");
 
             //
 
-            //Console.WriteLine();
+            //LogText();
 
             /*
              *  NumberTests
              */
 
-            //Console.WriteLine($"NumberTests{Environment.NewLine}");
+            //LogText($"NumberTests{Environment.NewLine}");
 
             //
 
-            //Console.WriteLine();
+            //LogText();
 
             stopwatch.Stop();
-            Console.WriteLine();
-            Console.WriteLine($"All tests executed in {stopwatch.Elapsed.TotalMinutes} minutes");
-            Console.WriteLine($"DEBUG = {debug}");
+            LogText();
+            LogText($"All tests executed in {stopwatch.Elapsed.TotalMinutes} minutes");
+            LogText($"DEBUG = {debug}");
+            Console.WriteLine($"Log file saved in {BaseDirectory}{LogFilename}");
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey();
         }
@@ -70,17 +77,27 @@ namespace CSharp
             var stackTrace = new StackTrace();
             var callingMethod = stackTrace.GetFrame(1)?.GetMethod()?.Name;
 
-            Console.WriteLine($"{callingMethod} N = {testIterations} = {stopwatch.Elapsed.TotalSeconds} seconds");
+            LogText($"{callingMethod} N = {testIterations} = {stopwatch.Elapsed.TotalSeconds} seconds");
         }
 
         private static void RunTestsFor(TestDelegate testDelegate)
         {
-            for (var i = 0; i < TestAttempts; i++)
+            for (var i = 0; i < TestRuns; i++)
             {
                 testDelegate();
             }
 
-            Console.WriteLine();
+            LogText();
+        }
+
+        public static void LogText(string text = null)
+        {
+            Console.WriteLine(text);
+
+            using (var logFile = File.AppendText(Path.Combine(BaseDirectory, LogFilename)))
+            {
+                logFile.WriteLine(text);
+            }
         }
     }
 }

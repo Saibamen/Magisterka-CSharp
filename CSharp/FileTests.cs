@@ -6,9 +6,8 @@ namespace CSharp
 {
     public static class FileTests
     {
-        private static readonly string BaseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-        private static readonly string TestFilesDirectory = Path.Combine(BaseDirectory, "TestFiles");
-        private static readonly string ReadTestFile = Path.Combine(BaseDirectory, "da51f72f-7804-40fe-bc66-8fc5418325fb_001.data");
+        private static readonly string TestFilesDirectory = Path.Combine(Program.BaseDirectory, "TestFiles");
+        private static readonly string ReadTestFile = Path.Combine(Program.BaseDirectory, "da51f72f-7804-40fe-bc66-8fc5418325fb_001.data");
 
         private const string TestFilePrefix = "testFile_";
         private const string TestFileExtension = ".txt";
@@ -20,7 +19,7 @@ namespace CSharp
                 return;
             }
 
-            Console.WriteLine("Deleting test files...");
+            Program.LogText("Deleting test files...");
             Directory.Delete(TestFilesDirectory, true);
         }
 
@@ -150,7 +149,7 @@ namespace CSharp
         {
             DeleteTestFiles();
 
-            Console.WriteLine("Creating test files...");
+            Program.LogText("Creating test files...");
             var testFileContent = File.ReadAllText(ReadTestFile);
             Directory.CreateDirectory(TestFilesDirectory);
 
@@ -162,7 +161,7 @@ namespace CSharp
                 Console.Write($"{i + 1} of {Program.Iterations}");
             }
 
-            Console.WriteLine();
+            Program.LogText();
         }
 
         private static void ClearCurrentConsoleLine()
