@@ -12,7 +12,7 @@ namespace CSharp
 
         private static void Main()
         {
-            bool debug;
+            var debug = false;
             #if DEBUG
                 debug = true;
             #endif
