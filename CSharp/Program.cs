@@ -48,6 +48,13 @@ namespace CSharp
             LogText($"StringTests{Environment.NewLine}");
 
             RunTestsFor(StringTests.AscTest);
+            RunTestsFor(StringTests.MidTest);
+            RunTestsFor(StringTests.LeftTest);
+            RunTestsFor(StringTests.RightTest);
+            RunTestsFor(StringTests.TrimTest);
+            RunTestsFor(StringTests.LenTest);
+            RunTestsFor(StringTests.LCaseTest);
+            RunTestsFor(StringTests.UCaseTest);
 
             //LogText();
 
