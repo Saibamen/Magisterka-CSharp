@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 
 namespace CSharp
@@ -6,8 +7,27 @@ namespace CSharp
     public static class StringTests
     {
         // TODO: StringModule
+        private const string TestString = "      ThisIsExample123StringToTestStringOperationsThisIsExample123StringToTestStringOperations      ";
+        private const string TestStringWithoutSpaces = "ThisIsExample123StringToTestStringOperationsWoSpacThisIsExample123StringToTestStringOperationsWoSpac";
 
         // Wycinanie pierwszych 3 znaków, łączenie stringów
+
+        // NOTE: Increased to 30000 iterations. Time in milliseconds
+        public static void AscTest()
+        {
+            const int testIterations = 30000;
+            int returnVar;
+
+            var stopwatch = Stopwatch.StartNew();
+
+            for (var i = 0; i < testIterations; i++)
+            {
+                returnVar = TestStringWithoutSpaces.First();
+            }
+
+            stopwatch.Stop();
+            Program.PrintElapsedTime(stopwatch, testIterations, true);
+        }
 
         private static int Asc(string text)
         {

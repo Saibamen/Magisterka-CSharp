@@ -45,9 +45,9 @@ namespace CSharp
              *  StringTests
              */
 
-            //LogText($"StringTests{Environment.NewLine}");
+            LogText($"StringTests{Environment.NewLine}");
 
-            //
+            RunTestsFor(StringTests.AscTest);
 
             //LogText();
 
@@ -70,14 +70,23 @@ namespace CSharp
             Console.ReadKey();
         }
 
-        public static void PrintElapsedTime(Stopwatch stopwatch, int? iterations = null)
+        public static void PrintElapsedTime(Stopwatch stopwatch, int? iterations = null, bool printMilliseconds = false)
         {
             var testIterations = iterations ?? Iterations;
 
             var stackTrace = new StackTrace();
             var callingMethod = stackTrace.GetFrame(1)?.GetMethod()?.Name;
 
-            LogText($"{callingMethod} N = {testIterations} = {stopwatch.Elapsed.TotalSeconds} seconds");
+            var timeToShow = stopwatch.Elapsed.TotalSeconds;
+            var timeUnit = "seconds";
+
+            if (printMilliseconds)
+            {
+                timeToShow = stopwatch.Elapsed.TotalMilliseconds;
+                timeUnit = "milliseconds";
+            }
+
+            LogText($"{callingMethod} N = {testIterations} = {timeToShow} {timeUnit}");
         }
 
         private static void RunTestsFor(TestDelegate testDelegate)
