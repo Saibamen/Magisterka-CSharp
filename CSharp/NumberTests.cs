@@ -26,7 +26,7 @@ namespace CSharp
             Program.PrintElapsedTime(stopwatch, testIterations, true);
         }
 
-        // NOTE: Increased to 1000000 iterations. Time in milliseconds
+        // NOTE: Increased to 1000000 iterations
         public static void RoundDecimalPlacesTest()
         {
             const int testIterations = 1000000;
