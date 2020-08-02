@@ -9,10 +9,10 @@ namespace CSharp
 
         // Operacje na liczbach całkowitych, zmiennoprzecinkowych, zaokrąglenia
 
-        // NOTE: Increased to 1000000 iterations. Time in milliseconds
+        // NOTE: Increased to 2000000 iterations. Time in milliseconds
         public static void IntTest()
         {
-            const int testIterations = 1000000;
+            const int testIterations = 2000000;
             int returnVar;
 
             var stopwatch = Stopwatch.StartNew();
@@ -26,10 +26,10 @@ namespace CSharp
             Program.PrintElapsedTime(stopwatch, testIterations, true);
         }
 
-        // NOTE: Increased to 1000000 iterations. Time in milliseconds
+        // NOTE: Increased to 2000000 iterations. Time in milliseconds
         public static void RoundDecimalPlacesTest()
         {
-            const int testIterations = 1000000;
+            const int testIterations = 2000000;
             double returnVar;
 
             var stopwatch = Stopwatch.StartNew();
