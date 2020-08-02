@@ -9,10 +9,10 @@ namespace CSharp
         // 500 characters
         private const string TestString = "ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTextToSearcherationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@";
 
-        // NOTE: Increased to 32000 iterations. Time in milliseconds
+        // NOTE: Increased to 1000000 iterations. Time in milliseconds
         public static void AscTest()
         {
-            const int testIterations = 32000;
+            const int testIterations = 1000000;
             int returnVar;
 
             var stopwatch = Stopwatch.StartNew();
@@ -33,10 +33,10 @@ namespace CSharp
             Program.PrintElapsedTime(stopwatch, testIterations, true);
         }
 
-        // NOTE: Increased to 32000 iterations. Time in milliseconds
+        // NOTE: Increased to 1000000 iterations. Time in milliseconds
         public static void MidTest()
         {
-            const int testIterations = 32000;
+            const int testIterations = 1000000;
             string returnVar;
 
             var stopwatch = Stopwatch.StartNew();
@@ -61,10 +61,10 @@ namespace CSharp
             Program.PrintElapsedTime(stopwatch, testIterations, true);
         }
 
-        // NOTE: Increased to 32000 iterations. Time in milliseconds
+        // NOTE: Increased to 1000000 iterations. Time in milliseconds
         public static void LeftTest()
         {
-            const int testIterations = 32000;
+            const int testIterations = 1000000;
             string returnVar;
 
             var stopwatch = Stopwatch.StartNew();
@@ -88,10 +88,10 @@ namespace CSharp
             Program.PrintElapsedTime(stopwatch, testIterations, true);
         }
 
-        // NOTE: Increased to 32000 iterations. Time in milliseconds
+        // NOTE: Increased to 1000000 iterations. Time in milliseconds
         public static void RightTest()
         {
-            const int testIterations = 32000;
+            const int testIterations = 1000000;
             string returnVar;
 
             var stopwatch = Stopwatch.StartNew();
@@ -118,10 +118,10 @@ namespace CSharp
             Program.PrintElapsedTime(stopwatch, testIterations, true);
         }
 
-        // NOTE: Increased to 32000 iterations. Time in milliseconds
+        // NOTE: Increased to 1000000 iterations. Time in milliseconds
         public static void TrimTest()
         {
-            const int testIterations = 32000;
+            const int testIterations = 1000000;
             string returnVar;
 
             var stopwatch = Stopwatch.StartNew();
@@ -145,10 +145,10 @@ namespace CSharp
             Program.PrintElapsedTime(stopwatch, testIterations, true);
         }
 
-        // NOTE: Increased to 32000 iterations. Time in milliseconds
+        // NOTE: Increased to 1000000 iterations. Time in milliseconds
         public static void LenTest()
         {
-            const int testIterations = 32000;
+            const int testIterations = 1000000;
             int returnVar;
 
             var stopwatch = Stopwatch.StartNew();
@@ -169,10 +169,10 @@ namespace CSharp
             Program.PrintElapsedTime(stopwatch, testIterations, true);
         }
 
-        // NOTE: Increased to 32000 iterations. Time in milliseconds
+        // NOTE: Increased to 1000000 iterations. Time in milliseconds
         public static void LCaseTest()
         {
-            const int testIterations = 32000;
+            const int testIterations = 1000000;
             string returnVar;
 
             var stopwatch = Stopwatch.StartNew();
@@ -186,10 +186,10 @@ namespace CSharp
             Program.PrintElapsedTime(stopwatch, testIterations, true);
         }
 
-        // NOTE: Increased to 32000 iterations. Time in milliseconds
+        // NOTE: Increased to 1000000 iterations. Time in milliseconds
         public static void UCaseTest()
         {
-            const int testIterations = 32000;
+            const int testIterations = 1000000;
             string returnVar;
 
             var stopwatch = Stopwatch.StartNew();
@@ -203,10 +203,10 @@ namespace CSharp
             Program.PrintElapsedTime(stopwatch, testIterations, true);
         }
 
-        // NOTE: Increased to 32000 iterations. Time in milliseconds
+        // NOTE: Increased to 1000000 iterations. Time in milliseconds
         public static void ReplaceTest()
         {
-            const int testIterations = 32000;
+            const int testIterations = 1000000;
             string returnVar;
 
             var stopwatch = Stopwatch.StartNew();
@@ -220,10 +220,10 @@ namespace CSharp
             Program.PrintElapsedTime(stopwatch, testIterations, true);
         }
 
-        // NOTE: Increased to 32000 iterations. Time in milliseconds
+        // NOTE: Increased to 1000000 iterations. Time in milliseconds
         public static void PadLeftTest()
         {
-            const int testIterations = 32000;
+            const int testIterations = 1000000;
             string returnVar;
 
             var stopwatch = Stopwatch.StartNew();

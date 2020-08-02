@@ -67,12 +67,13 @@ namespace CSharp
             LogText($"NumberTests{Environment.NewLine}");
 
             RunTestsFor(NumberTests.IntTest);
+            RunTestsFor(NumberTests.RoundDecimalPlacesTest);
 
             LogText();
 
             stopwatch.Stop();
             LogText();
-            LogText($"All tests executed in {stopwatch.Elapsed.TotalMinutes} minutes");
+            LogText($"All tests executed in {Math.Round(stopwatch.Elapsed.TotalMinutes, 3)} minutes");
             LogText($"DEBUG = {debug}");
             Console.WriteLine($"Log file saved in {BaseDirectory}{LogFilename}");
             Console.WriteLine("Press any key to exit...");
