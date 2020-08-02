@@ -234,7 +234,7 @@ namespace CSharp
             }
 
             stopwatch.Stop();
-            Program.PrintElapsedTime(stopwatch, testIterations, true);
+            Program.PrintElapsedTime(stopwatch, testIterations);
         }
     }
 }
