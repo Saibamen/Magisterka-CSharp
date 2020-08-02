@@ -183,7 +183,7 @@ namespace CSharp
             }
 
             stopwatch.Stop();
-            Program.PrintElapsedTime(stopwatch, testIterations, true);
+            Program.PrintElapsedTime(stopwatch, testIterations);
         }
 
         // NOTE: Increased to 1000000 iterations. Time in milliseconds
@@ -200,7 +200,7 @@ namespace CSharp
             }
 
             stopwatch.Stop();
-            Program.PrintElapsedTime(stopwatch, testIterations, true);
+            Program.PrintElapsedTime(stopwatch, testIterations);
         }
 
         // NOTE: Increased to 1000000 iterations. Time in milliseconds
@@ -217,7 +217,7 @@ namespace CSharp
             }
 
             stopwatch.Stop();
-            Program.PrintElapsedTime(stopwatch, testIterations, true);
+            Program.PrintElapsedTime(stopwatch, testIterations);
         }
 
         // NOTE: Increased to 1000000 iterations. Time in milliseconds

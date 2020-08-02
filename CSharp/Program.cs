@@ -96,7 +96,7 @@ namespace CSharp
                 timeUnit = "milliseconds";
             }
 
-            LogText($"{callingMethod} N = {testIterations} = {timeToShow} {timeUnit}");
+            LogText($"{callingMethod} N = {testIterations} = {Math.Round(timeToShow, 3)} {timeUnit}");
         }
 
         private static void RunTestsFor(TestDelegate testDelegate)
