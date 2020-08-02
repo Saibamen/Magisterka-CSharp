@@ -72,7 +72,6 @@ namespace CSharp
             LogText();
 
             stopwatch.Stop();
-            LogText();
             LogText($"All tests executed in {Math.Round(stopwatch.Elapsed.TotalMinutes, 3)} minutes");
             LogText($"DEBUG = {debug}");
             Console.WriteLine($"Log file saved in {BaseDirectory}{LogFilename}");
