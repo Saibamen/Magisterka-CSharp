@@ -55,6 +55,8 @@ namespace CSharp
             RunTestsFor(StringTests.LenTest);
             RunTestsFor(StringTests.LCaseTest);
             RunTestsFor(StringTests.UCaseTest);
+            RunTestsFor(StringTests.ReplaceTest);
+            RunTestsFor(StringTests.PadLeftTest);
 
             //LogText();
 

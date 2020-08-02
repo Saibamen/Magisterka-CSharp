@@ -6,9 +6,6 @@ namespace CSharp
 {
     public static class StringTests
     {
-        // TODO: StringModule
-        // Łączenie stringów, Pad, czy ma liczbę, szukanie tekstu "TextToSearch", usuwanie tekstu
-
         // 500 characters
         private const string TestString = "ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTextToSearcherationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@";
 
@@ -131,7 +128,7 @@ namespace CSharp
 
             for (var i = 0; i < testIterations; i++)
             {
-                // 520 characters, 10 whitespaces at beginning and end
+                // 520 characters, 10 whitespaces both at beginning and end
                 var textToTrim = "          ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTextToSearcherationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@          ";
 
                 if (string.IsNullOrEmpty(textToTrim))
@@ -206,6 +203,38 @@ namespace CSharp
             Program.PrintElapsedTime(stopwatch, testIterations, true);
         }
 
-        // TODO: val?
+        // NOTE: Increased to 32000 iterations. Time in milliseconds
+        public static void ReplaceTest()
+        {
+            const int testIterations = 32000;
+            string returnVar;
+
+            var stopwatch = Stopwatch.StartNew();
+
+            for (var i = 0; i < testIterations; i++)
+            {
+                returnVar = TestString.Replace("TextToSearch", "ChangedText1");
+            }
+
+            stopwatch.Stop();
+            Program.PrintElapsedTime(stopwatch, testIterations, true);
+        }
+
+        // NOTE: Increased to 32000 iterations. Time in milliseconds
+        public static void PadLeftTest()
+        {
+            const int testIterations = 32000;
+            string returnVar;
+
+            var stopwatch = Stopwatch.StartNew();
+
+            for (var i = 0; i < testIterations; i++)
+            {
+                returnVar = TestString.PadLeft(1000, '#');
+            }
+
+            stopwatch.Stop();
+            Program.PrintElapsedTime(stopwatch, testIterations, true);
+        }
     }
 }
