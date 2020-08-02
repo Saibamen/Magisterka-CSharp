@@ -58,17 +58,17 @@ namespace CSharp
             RunTestsFor(StringTests.ReplaceTest);
             RunTestsFor(StringTests.PadLeftTest);
 
-            //LogText();
+            LogText();
 
             /*
              *  NumberTests
              */
 
-            //LogText($"NumberTests{Environment.NewLine}");
+            LogText($"NumberTests{Environment.NewLine}");
 
-            //
+            RunTestsFor(NumberTests.IntTest);
 
-            //LogText();
+            LogText();
 
             stopwatch.Stop();
             LogText();
