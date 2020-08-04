@@ -88,14 +88,16 @@ namespace CSharp
 
             var timeToShow = stopwatch.Elapsed.TotalSeconds;
             var timeUnit = "seconds";
+            var roundDecimal = 3;
 
             if (printMilliseconds)
             {
                 timeToShow = stopwatch.Elapsed.TotalMilliseconds;
                 timeUnit = "milliseconds";
+                roundDecimal = 1;
             }
 
-            LogText($"{callingMethod} N = {testIterations} = {Math.Round(timeToShow, 3)} {timeUnit}");
+            LogText($"{callingMethod} N = {testIterations} = {Math.Round(timeToShow, roundDecimal)} {timeUnit}");
         }
 
         private static void RunTestsFor(TestDelegate testDelegate)
