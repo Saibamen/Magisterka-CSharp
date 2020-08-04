@@ -40,7 +40,7 @@ namespace CSharp
             Program.PrintElapsedTime(stopwatch, NumberTestsIterations, true);
         }
 
-        // NOTE: Increased to 1000000 iterations
+        // NOTE: Increased to 1000000 iterations. Time in milliseconds
         public static void BasicMathTest()
         {
             double returnVar;
@@ -50,6 +50,54 @@ namespace CSharp
             for (var i = 0; i < NumberTestsIterations; i++)
             {
                 returnVar = (51564981649.3 - 864518.9 + 9841598198.3 * 11869.4) / 6.7423;
+            }
+
+            stopwatch.Stop();
+            Program.PrintElapsedTime(stopwatch, NumberTestsIterations, true);
+        }
+
+        // NOTE: Increased to 1000000 iterations. Time in milliseconds
+        public static void ModuloTest()
+        {
+            double returnVar;
+
+            var stopwatch = Stopwatch.StartNew();
+
+            for (var i = 0; i < NumberTestsIterations; i++)
+            {
+                returnVar = Math.Sqrt(1568464648.234234);
+            }
+
+            stopwatch.Stop();
+            Program.PrintElapsedTime(stopwatch, NumberTestsIterations, true);
+        }
+
+        // NOTE: Increased to 1000000 iterations. Time in milliseconds
+        public static void AtanTest()
+        {
+            double returnVar;
+
+            var stopwatch = Stopwatch.StartNew();
+
+            for (var i = 0; i < NumberTestsIterations; i++)
+            {
+                returnVar = Math.Atan(1568464648.234234);
+            }
+
+            stopwatch.Stop();
+            Program.PrintElapsedTime(stopwatch, NumberTestsIterations, true);
+        }
+
+        // NOTE: Increased to 1000000 iterations. Time in milliseconds
+        public static void ExpTest()
+        {
+            double returnVar;
+
+            var stopwatch = Stopwatch.StartNew();
+
+            for (var i = 0; i < NumberTestsIterations; i++)
+            {
+                returnVar = Math.Exp(158.234234);
             }
 
             stopwatch.Stop();
