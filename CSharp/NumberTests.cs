@@ -6,7 +6,6 @@ namespace CSharp
     public static class NumberTests
     {
         private const int NumberTestsIterations = 1000000;
-        // TODO: NumberTests
 
         // NOTE: Increased to 1000000 iterations. Time in milliseconds
         public static void IntTest()
