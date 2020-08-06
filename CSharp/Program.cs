@@ -23,6 +23,8 @@ namespace CSharp
                 debug = true;
             #endif
 
+            LogText($"{DateTime.Now}{Environment.NewLine}");
+
             var stopwatch = Stopwatch.StartNew();
 
             /*
