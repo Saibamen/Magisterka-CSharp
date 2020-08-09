@@ -14,7 +14,7 @@ namespace CSharp
 
         public static void DeleteTestFiles()
         {
-            Program.LogText("Deleting test files...");
+            Console.WriteLine("Deleting test files...");
 
             if (!Directory.Exists(TestFilesDirectory))
             {
@@ -150,7 +150,7 @@ namespace CSharp
         {
             DeleteTestFiles();
 
-            Program.LogText("Creating test files...");
+            Console.WriteLine("Creating test files...");
             var testFileContent = File.ReadAllText(ReadTestFile);
             Directory.CreateDirectory(TestFilesDirectory);
 
