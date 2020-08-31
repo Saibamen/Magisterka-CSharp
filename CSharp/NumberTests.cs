@@ -56,7 +56,7 @@ namespace CSharp
         }
 
         // NOTE: Increased to 1000000 iterations. Time in milliseconds
-        public static void ModuloTest()
+        public static void SqrtTest()
         {
             double returnVar;
 

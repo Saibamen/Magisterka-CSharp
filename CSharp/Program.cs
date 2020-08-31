@@ -71,7 +71,7 @@ namespace CSharp
             RunTestsFor(NumberTests.IntTest);
             RunTestsFor(NumberTests.RoundDecimalPlacesTest);
             RunTestsFor(NumberTests.BasicMathTest);
-            RunTestsFor(NumberTests.ModuloTest);
+            RunTestsFor(NumberTests.SqrtTest);
             RunTestsFor(NumberTests.AtanTest);
             RunTestsFor(NumberTests.ExpTest);
             RunTestsFor(NumberTests.RandomNumberTest);
